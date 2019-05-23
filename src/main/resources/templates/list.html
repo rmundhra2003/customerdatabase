@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Customers</title>
+</head>
+<body>
+<a href="/add">Add a customer</a>
+<a href="/find">Find a customer</a>
+<table>
+    <thead>
+    <th>Title</th>
+    <th>Full Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Email Address</th>
+    <th>Position</th>
+    </thead>
+    <tbody>
+    <tr th:each="customer: ${customers}">
+        <td th:text="${customer.title}"></td>
+        <td th:inline="text">[[${customer.firstName}]] [[${customer.lastName}]]</td>
+        <td th:text="${customer.streetAddress}"></td>
+        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.emailAddress}"></td>
+        <td th:text="${customer.position}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
